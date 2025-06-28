@@ -1,69 +1,119 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🦷 Dental Center Management Dashboard
 
-Currently, two official plugins are available:
+A responsive, fully client-side React application simulating a Dental Center Management System for Admins (Dentists) and Patients. Built as part of the ENTNT Frontend Developer Technical Assignment.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## Expanding the ESLint configuration
+🔗 [Deployed on Vercel](https://dental-center-management.vercel.app/)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
+## 📁 Repository
+
+📦 [GitHub Repository](https://github.com/hprasath2306/Dental-Center-Management)
+
+---
+
+## 📌 Features
+
+### ✅ Authentication (Simulated)
+- Role-based login with hardcoded users (Admin / Patient)
+- Session persistence via `localStorage`
+- Redirects based on user roles
+
+### 👩‍⚕️ Admin Functionality
+- **Patient Management**
+  - Add, edit, delete patient records
+  - Fields: Full Name, DOB, Contact Info, Health Info
+
+- **Incident / Appointment Management**
+  - Add multiple incidents per patient
+  - Fields: Title, Description, Comments, Appointment DateTime
+  - Post-treatment: Cost, Treatment Details, Status, Next Date
+  - File upload for treatment documents (PDF, images)
+
+- **Calendar View**
+  - Monthly/Weekly calendar showing scheduled appointments
+  - Click a day to view treatments
+
+- **Dashboard**
+  - KPIs: Upcoming appointments, revenue, top patients, treatment statuses, etc.
+
+### 🧑‍💻 Patient Functionality
+- View only their own:
+  - Profile & health info
+  - Appointment history
+  - Treatment details & uploaded files
+
+### 💾 Data Persistence
+- All data stored and managed using `localStorage`
+- Uploaded files converted to base64 or blob URLs
+
+### 📱 Responsive UI
+- Fully responsive layout using TailwindCSS
+- Optimized for mobile, tablet, and desktop
+
+---
+
+## 🧠 Technical Stack
+
+| Technology        | Description                                    |
+|-------------------|------------------------------------------------|
+| React             | Functional components, Hooks-based             |
+| React Router DOM  | Frontend routing                               |
+| Context API       | Global auth & data state management            |
+| TailwindCSS       | Responsive and utility-first styling           |
+| localStorage      | Data and session simulation                    |
+
+---
+
+## 🔐 Simulated Users
+
+\`\`\`json
+[
   {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
+    "id": "1",
+    "role": "Admin",
+    "email": "admin@entnt.in",
+    "password": "admin123"
   },
-])
+  {
+    "id": "2",
+    "role": "Patient",
+    "email": "john@entnt.in",
+    "password": "patient123",
+    "patientId": "p1"
+  }
+]
+\`\`\`
+
+---
+
+## 🧪 How to Run Locally
+
+```bash
+git clone https://github.com/hprasath2306/Dental-Center-Management
+cd Dental-Center-Management
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+App will run at [http://localhost:5173](http://localhost:5173)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🏗️ Technical Decisions
+
+- **State Management:** Chose Context API for simplicity and centralized access to auth & data.
+- **Data Handling:** All CRUD operations mirror backend workflows using localStorage.
+- **File Uploads:** Handled as base64 or blob URLs to simulate upload/download without a backend.
+- **Routing:** Role-based access and nested routes for admin/patient segregation.
+- **Styling:** TailwindCSS for consistency, responsiveness, and ease of utility-driven design.
+- **Modularization:** Focused on reusability of forms, cards, tables, and layout components.
+
+---
+
+## 🙏 Acknowledgements
+
+Thanks to ENTNT for the opportunity and well-structured assignment prompt.
