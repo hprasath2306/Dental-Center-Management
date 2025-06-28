@@ -5,7 +5,7 @@ import { DataProvider } from './contexts/DataContext';
 import { Layout } from './components/common/Layout';
 import { LoginForm } from './pages/auth/LoginForm';
 
-// Admin
+// Admin 
 import { Dashboard } from './pages/admin/Dashboard';
 import { PatientManagement } from './pages/admin/PatientManagement';
 import { AppointmentManagement } from './pages/admin/AppointmentManagement';
